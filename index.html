@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="RoleMap turns a target job description into three evidence gaps and proof actions.">
+<title>RoleMap | Know what to prove next</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header><a class="brand" href="/">RoleMap</a><a class="btn small" href="#scan">Try Gap Scan</a></header>
+<main>
+<section class="hero">
+<div>
+<p class="eyebrow">FOR PROFESSIONALS PLANNING A ROLE SWITCH</p>
+<h1>Stop collecting courses.<br>Start building proof.</h1>
+<p class="lead">Paste one target job description. RoleMap finds three requirements that are not yet visible in the background you provide, then gives you one proof task for each.</p>
+<a class="btn" href="#scan">Scan a target role</a>
+<p class="micro">No resume upload. No hiring prediction. One focused plan in under a minute.</p>
+</div>
+<div class="card">
+<p class="eyebrow">EXAMPLE GAP SCAN</p>
+<h2>Strategy & Operations Manager</h2>
+<div class="gap"><b>01 · SQL decision analysis</b><p>Diagnose a public funnel dataset with three queries and one decision.</p></div>
+<div class="gap"><b>02 · Experiment design</b><p>Write a one-page A/B test brief with metric, guardrail and decision rule.</p></div>
+<div class="gap"><b>03 · Executive synthesis</b><p>Turn the analysis into five slides with the recommendation first.</p></div>
+</div>
+</section>
+
+<section class="problem">
+<p class="eyebrow">THE PROBLEM</p>
+<h2>Most career tools tell you what to learn. The harder question is what the target role needs you to prove.</h2>
+<p>RoleMap uses one fixed workflow: requirement → evidence gap → proof action.</p>
+</section>
+
+<section id="scan" class="scan">
+<p class="eyebrow">TRY THE CORE PRODUCT</p>
+<h2>RoleMap Gap Scan</h2>
+<p>We compare the job requirements with only the background you choose to provide.</p>
+<form id="scanForm">
+<label>Target job description
+<textarea id="jd" maxlength="6000" required placeholder="Paste responsibilities and requirements from a real job description..."></textarea>
+</label>
+<div class="grid">
+<label>Current role<select id="role"><option>Analyst</option><option>Consultant</option><option>Product / Program</option><option>Operations</option><option>Finance</option><option>Marketing / Growth</option><option>Other</option></select></label>
+<label>Experience<select id="exp"><option>0–1 years</option><option>2–3 years</option><option>4–6 years</option><option>7+ years</option></select></label>
+<label>Strongest area<select id="strength"><option>Problem solving</option><option>Analytics</option><option>Communication</option><option>Execution</option><option>Stakeholder management</option></select></label>
+</div>
+<button id="submit" type="submit">Find my 3 evidence gaps</button>
+</form>
+<div id="result"></div>
+<div class="readback"><b>Most common evidence gaps this week</b><span id="skills">Loads from Supabase after a successful scan.</span></div>
+</section>
+
+<section class="limits">
+<h2>A gap scan is a planning aid, not a verdict.</h2>
+<p>RoleMap does not judge intelligence, score your worth, invent experience or predict whether you will be hired. If evidence is missing, it says so.</p>
+</section>
+</main>
+<footer>RoleMap · Career-transition prototype · Ansh Agrawal</footer>
+<script src="/app.js"></script>
+</body>
+</html>
