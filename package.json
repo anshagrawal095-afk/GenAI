@@ -1,0 +1,1 @@
+{"name":"rolemap-career","version":"2.1.0","private":true,"dependencies":{"@google/genai":"^1.27.0","@supabase/supabase-js":"^2.57.4"}}
