@@ -1,6 +1,6 @@
 const {GoogleGenAI}=require("@google/genai");
 const {createClient}=require("@supabase/supabase-js");
-const MODEL="gemini-2.5-flash";
+const MODEL="gemini-3.8-flash";
 const SYSTEM_PROMPT=`You are the analysis engine for RoleMap, a career-transition product for professionals with 1-6 years of experience.
 Compare a genuine target job description with only the supplied current role, experience band and strongest functional area.
 Return exactly three evidence gaps, one 7-day proof action for each, and a short readiness summary.
@@ -31,7 +31,7 @@ const {count,error:countError}=await supabase.from("analyses").select("*",{count
 if(countError)throw countError;
 if((count||0)>=3)return res.status(429).json({error:"You have used today's 3 scans. Try again tomorrow."});
 const ai=new GoogleGenAI({apiKey:process.env.GEMINI_API_KEY});
-const response=await ai.models.generateContent({model:MODEL,contents:JSON.stringify({jobDescription,currentRole,experience,strongestArea}),config:{systemInstruction:SYSTEM_PROMPT,responseMimeType:"application/json",maxOutputTokens:350,temperature:.25}});
+const response=await ai.models.generateContent({model:MODEL,contents:JSON.stringify({jobDescription,currentRole,experience,strongestArea}),config:{systemInstruction:SYSTEM_PROMPT,responseMimeType:"application/json",maxOutputTokens:350}});
 const parsed=JSON.parse(response.text);
 if(!parsed||typeof parsed.readiness_summary!=="string"||!Array.isArray(parsed.gaps)||parsed.gaps.length!==3)throw new Error("Unexpected model response.");
 const gaps=parsed.gaps.map(g=>({skill:safe(g.skill,80),why:safe(g.why,400),action:safe(g.action,400)}));
